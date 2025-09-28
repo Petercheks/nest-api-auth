@@ -1,6 +1,6 @@
 import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { AuthResponse } from './interfaces/auth.interfaces';
+import { AuthResponse } from './interfaces/auth.interface';
 import { AuthRequest } from './dto/auth-request.dto';
 
 @Controller('auth')

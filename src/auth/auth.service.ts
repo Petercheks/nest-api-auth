@@ -1,8 +1,8 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { UsersService } from 'src/users/users.service';
 import { AuthRequest } from './dto/auth-request.dto';
-import { SignInData, AuthResponse } from './interfaces/auth.interfaces';
+import { SignInData, AuthResponse } from './interfaces/auth.interface';
 
 @Injectable()
 export class AuthService {
@@ -15,7 +15,13 @@ export class AuthService {
     const user = await this.validateUser(request);
 
     if (!user) {
-      throw new UnauthorizedException();
+      throw new HttpException(
+        {
+          error: 'Invalid credentials',
+          statusCode: HttpStatus.UNAUTHORIZED,
+        },
+        HttpStatus.UNAUTHORIZED,
+      );
     }
 
     return this.signIn(user);

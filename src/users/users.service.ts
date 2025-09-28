@@ -1,10 +1,5 @@
 import { Injectable } from '@nestjs/common';
-
-interface User {
-  id: number;
-  username: string;
-  password: string;
-}
+import { User } from './interfaces/users.interface';
 
 const users: User[] = [
   {
