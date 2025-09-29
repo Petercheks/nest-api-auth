@@ -1,20 +1,20 @@
 import { Request } from 'express';
 
 export interface SignInData {
-  id: number;
+  id: string;
   username: string;
 }
 export interface AuthResponse {
   accessToken: string;
-  id: number;
+  id: string;
   username: string;
 }
 
 export interface TokenPayload {
-  sub: number;
+  sub: string;
   username: string;
 }
 
 export interface RequestWithUser extends Request {
-  user?: { id: number; username: string };
+  user?: { id: string; username: string };
 }
