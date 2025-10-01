@@ -4,6 +4,7 @@ export interface SignInData {
   id: string;
   username: string;
 }
+
 export interface AuthResponse {
   accessToken: string;
   id: string;
